@@ -1,11 +1,23 @@
 export default class BaseCharacter {
-	protected atk: number;
-	protected def: number;
-	protected speed: number;
+	public atk: number;
+	public def: number;
+	public spd: number;
+	public hp: number;
 
-	constructor() {
-		this.atk = 1;
-		this.def = 1;
-		this.speed = 1;
+	constructor(maxHP: number, attack: number, defense: number, speed: number) {
+		this.hp = maxHP;
+		this.atk = attack;
+		this.def = defense;
+		this.spd = speed;
+	}
+
+	basicCharacterAttack(character: BaseCharacter) {
+		this.hp -= character.atk - this.def;
+		return this;
+	}
+
+	basicValueAttack(damage: number) {
+		this.hp -= damage - this.def;
+		return this;
 	}
 }
