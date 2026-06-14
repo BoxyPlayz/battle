@@ -4,9 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc src/**/*.ts",
+    "build": "tsc",
     "lint": "eslint .",
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "exe": "node ./build/index.js"
   },
   "devDependencies": {
     "@boxyplayz/prettier-config": "^1.0.1",
