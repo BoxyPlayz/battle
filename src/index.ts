@@ -12,6 +12,8 @@ let char: BaseCharacter | null = null,
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 
+console.log("Battle! Start!")
+
 rl.on('line', (input) => {
 	if (currentState === States.fight) {
 		if (char === null) {
@@ -31,10 +33,10 @@ rl.on('line', (input) => {
 
 			case 'flee':
 				currentState = States.wander;
+				console.log("You escaped!")
 				break;
 
 			default:
-				console.log(`Sent: ${input}`);
 				break;
 		}
 	}
@@ -48,6 +50,7 @@ rl.on('line', (input) => {
 					getRandomInt(10, false)
 				);
 				currentState = States.fight;
+				console.log("You have entered a fight.")
 				break;
 
 			default:
