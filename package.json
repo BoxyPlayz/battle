@@ -1,23 +1,24 @@
 {
-  "name": "battle",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "build": "tsc",
-    "lint": "eslint .",
-    "prettier": "prettier --write .",
-    "exe": "node ./build/index.js"
-  },
-  "devDependencies": {
-    "@boxyplayz/prettier-config": "^1.0.1",
-    "@eslint/js": "^10.0.1",
-    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
-    "@types/node": "^24.12.3",
-    "eslint": "^10.3.0",
-    "prettier": "^3.8.4",
-    "typescript": "~6.0.3",
-    "typescript-eslint": "^8.59.2"
-  },
-  "prettier": "@boxyplayz/prettier-config"
+	"name": "battle",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"build": "tsc",
+		"lint": "eslint .",
+		"prettier": "prettier --write .",
+		"exe": "node ./build/index.js",
+		"quickRun": "pnpm build && pnpm exe"
+	},
+	"devDependencies": {
+		"@boxyplayz/prettier-config": "^1.0.1",
+		"@eslint/js": "^10.0.1",
+		"@trivago/prettier-plugin-sort-imports": "^6.0.2",
+		"@types/node": "^24.12.3",
+		"eslint": "^10.3.0",
+		"prettier": "^3.8.4",
+		"typescript": "~6.0.3",
+		"typescript-eslint": "^8.59.2"
+	},
+	"prettier": "@boxyplayz/prettier-config"
 }

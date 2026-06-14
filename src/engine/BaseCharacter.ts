@@ -13,11 +13,13 @@ export default class BaseCharacter {
 
 	basicCharacterAttack(character: BaseCharacter) {
 		this.hp -= character.atk - this.def;
-		return this;
 	}
 
 	basicValueAttack(damage: number) {
 		this.hp -= damage - this.def;
-		return this;
+	}
+
+	updatePost() {
+		'TODO LATER';
 	}
 }

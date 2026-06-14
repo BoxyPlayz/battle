@@ -1,15 +1,19 @@
 import js from '@eslint/js';
 import { defineConfig, globalIgnores } from 'eslint/config';
-import globals from 'globals';
 import tseslint from 'typescript-eslint';
 
 export default defineConfig([
 	globalIgnores(['dist']),
 	{
 		files: ['**/*.{ts,tsx}'],
-		extends: [
-			js.configs.recommended,
-			tseslint.configs.recommended,
-		],
+		extends: [js.configs.all, tseslint.configs.strictTypeChecked],
+		languageOptions: { parserOptions: { projectService: true } },
+		rules: {
+			'no-magic-numbers': 'off',
+			'no-console': 'off',
+			'@typescript-eslint/restrict-template-expressions': 'off',
+			'max-params': 'off',
+			'class-methods-use-this': 'off',
+		},
 	},
 ]);
