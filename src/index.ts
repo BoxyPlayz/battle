@@ -2,6 +2,7 @@ import readline from 'node:readline';
 import { getRandomInt } from './Utils.ts';
 import BaseCharacter from './engine/BaseCharacter.ts';
 import LevelledCharacter from './engine/LevelledCharacter.ts';
+import chalk from 'chalk';
 
 enum States {
 	fight,
@@ -62,7 +63,7 @@ rl.on('line', (input) => {
 			case 'attack':
 				const result = enemy.basicCharacterAttack(player);
 				if (result === 0) {
-					console.log(`Enemy is now at ${enemy.hp} HP`);
+					console.log(`${chalk.red("Enemy")} is now at ${enemy.hp} HP`);
 				}
 				break;
 
