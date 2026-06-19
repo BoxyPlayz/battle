@@ -31,6 +31,6 @@ export default class LevelledCharacter extends BaseCharacter {
 		this.atk = LevelArray[this.level].atk;
 		this.def = LevelArray[this.level].def;
 		this.spd = LevelArray[this.level].speed;
-		console.log("LEVEL UP!")
+		console.log('LEVEL UP!');
 	}
 }

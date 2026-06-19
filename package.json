@@ -4,10 +4,10 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"build": "tsc",
+		"build": "rolldown -c",
 		"lint": "eslint .",
 		"prettier": "prettier --write .",
-		"exe": "node ./build/index.js",
+		"exe": "node ./build/main.js",
 		"quickRun": "pnpm build && pnpm exe"
 	},
 	"devDependencies": {
@@ -17,6 +17,7 @@
 		"@types/node": "^24.12.3",
 		"eslint": "^10.3.0",
 		"prettier": "^3.8.4",
+		"rolldown": "^1.1.1",
 		"typescript": "~6.0.3",
 		"typescript-eslint": "^8.59.2"
 	},

@@ -1,8 +1,8 @@
 import readline from 'node:readline';
+import chalk from 'chalk';
 import { getRandomInt } from './Utils.ts';
 import BaseCharacter from './engine/BaseCharacter.ts';
 import LevelledCharacter from './engine/LevelledCharacter.ts';
-import chalk from 'chalk';
 
 enum States {
 	fight,
@@ -32,6 +32,25 @@ const postAttack = () => {
 };
 
 rl.on('line', (input) => {
+	if (input.trim().toLowerCase() === 'help') {
+		switch (currentState) {
+			case States.fight:
+				console.log('Actions: attack, check, flee, skill');
+				break;
+
+			case States.skillSelect:
+				console.log('Skills: triple, bypass');
+				break;
+
+			case States.wander:
+				console.log('Actions: fight, heal, stats');
+				break;
+
+			default:
+				break;
+		}
+		return;
+	}
 	if (currentState === States.skillSelect) {
 		if (enemy) {
 			switch (input.trim().toLowerCase()) {
@@ -54,8 +73,7 @@ rl.on('line', (input) => {
 			currentState = States.fight;
 			postAttack();
 		}
-	}
-	else if (currentState === States.fight) {
+	} else if (currentState === States.fight) {
 		if (enemy === null) {
 			return;
 		}
@@ -63,7 +81,9 @@ rl.on('line', (input) => {
 			case 'attack':
 				const result = enemy.basicCharacterAttack(player);
 				if (result === 0) {
-					console.log(`${chalk.red("Enemy")} is now at ${enemy.hp} HP`);
+					console.log(
+						`${chalk.red('Enemy')} is now at ${enemy.hp} HP`
+					);
 				}
 				break;
 
@@ -88,8 +108,7 @@ rl.on('line', (input) => {
 				return;
 		}
 		postAttack();
-	}
-	else if (currentState === States.wander) {
+	} else if (currentState === States.wander) {
 		switch (input.trim().toLowerCase()) {
 			case 'fight':
 				enemy = new BaseCharacter(
@@ -125,7 +144,7 @@ rl.on('line', (input) => {
 				break;
 
 			case 'lvup':
-				player.levelUp()
+				player.levelUp();
 				break;
 
 			default:

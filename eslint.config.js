@@ -22,6 +22,7 @@ export default defineConfig([
 			'guard-for-in': 'off',
 			'one-var': 'off',
 			'no-case-declarations': 'off',
+			complexity: 'off',
 		},
 	},
 ]);
